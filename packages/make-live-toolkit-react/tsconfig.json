@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "lib": ["dom", "es2016"],
+    "module": "commonjs",
+    "target": "es2016",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "rootDir": "src",
+    "outDir": "dist/cjs"
+  },
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../make-live-toolkit"
+    }
+  ]
+}

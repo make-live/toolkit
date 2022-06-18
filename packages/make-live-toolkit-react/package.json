@@ -1,0 +1,18 @@
+{
+  "name": "@make-live/toolkit-react",
+  "version": "0.0.1",
+  "description": "Provides a way to interact with Make Live instances via React",
+  "repository": "git@github.com:make-live/toolkit.git",
+  "author": "Make Live Team",
+  "license": "MIT",
+  "private": true,
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "scripts": {},
+  "dependencies": {
+    "@make-live/toolkit": "^0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}

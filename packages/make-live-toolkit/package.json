@@ -1,0 +1,15 @@
+{
+  "name": "@make-live/toolkit",
+  "version": "0.0.1",
+  "description": "Provides a way to interact with Make Live instances",
+  "repository": "git@github.com:make-live/toolkit.git",
+  "author": "Make Live Team",
+  "license": "MIT",
+  "private": true,
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "scripts": {},
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
