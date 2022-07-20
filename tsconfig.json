@@ -2,7 +2,6 @@
   "files": [],
   "references": [
     { "path": "packages/make-live-toolkit" },
-    { "path": "packages/make-live-toolkit-dev" },
     { "path": "packages/make-live-toolkit-react" }
   ]
 }

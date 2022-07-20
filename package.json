@@ -18,6 +18,7 @@
     "test": "wsrun -tm test"
   },
   "workspaces": [
+    "examples/*",
     "packages/*"
   ],
   "devDependencies": {
