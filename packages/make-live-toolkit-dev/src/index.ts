@@ -1,8 +1,9 @@
 import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 import { createServers } from "./server";
 
-const args = yargs
-  .scriptName("pirate-parser")
+const args = yargs(hideBin(process.argv))
+  .scriptName("make-live-dev")
   .usage("$0 [args]")
   .options({
     "player-port": {
@@ -16,7 +17,8 @@ const args = yargs
       type: "number",
     },
   })
-  .help().argv;
+  .help()
+  .parseSync();
 
 createServers({
   playerPort: args["player-port"],
