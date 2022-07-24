@@ -24,7 +24,7 @@ describe("isValidEvent", () => {
   });
 
   it("returns `true` for `RESPONSE` event", () => {
-    const event: ResponseEvent = { type: "RESPONSE" };
+    const event: ResponseEvent = { data: "MyEvent", type: "RESPONSE" };
 
     const result = isValidEvent(event);
 

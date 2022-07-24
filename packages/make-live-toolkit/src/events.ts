@@ -13,7 +13,7 @@ export const disconnectEvent = z.object({
 export type DisconnectEvent = z.infer<typeof disconnectEvent>;
 
 export const responseEvent = z.object({
-  data: z.any(),
+  data: z.string(),
   type: z.literal("RESPONSE"),
 });
 
