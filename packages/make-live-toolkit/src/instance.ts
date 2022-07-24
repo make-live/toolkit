@@ -1,9 +1,11 @@
 import { EventListener, isValidEvent, Subscription } from "./events";
 import { Strategy } from "./strategy";
 import { createIFrameStrategy } from "./iframe-strategy";
+import { Command } from "./commands";
 
 export type Instance = {
   addEventListener: (listener: EventListener) => Subscription;
+  sendCommand: (command: Command) => void;
   url: URL;
 };
 
@@ -34,7 +36,6 @@ export const createInstance = ({
   });
 
   return {
-    url: new URL(url),
     addEventListener: (listener) => {
       eventListeners.push(listener);
 
@@ -42,5 +43,9 @@ export const createInstance = ({
         eventListeners = eventListeners.filter((l) => l !== listener);
       };
     },
+    sendCommand: (command) => {
+      strategy.sendCommand(command);
+    },
+    url: new URL(url),
   };
 };

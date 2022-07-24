@@ -19,6 +19,7 @@ describe("useEvents", () => {
           value={{
             instance: {
               addEventListener: addEventListenerMock,
+              sendCommand: jest.fn(),
               url: new URL("http://localhost:8888"),
             },
             setContainer: jest.fn(),
@@ -48,6 +49,7 @@ describe("useEvents", () => {
           value={{
             instance: {
               addEventListener: addEventListenerMock,
+              sendCommand: jest.fn(),
               url: new URL("http://localhost:8888"),
             },
             setContainer: jest.fn(),
@@ -85,6 +87,7 @@ describe("useEvents", () => {
           value={{
             instance: {
               addEventListener: addEventListenerMock,
+              sendCommand: jest.fn(),
               url: new URL("http://localhost:8888"),
             },
             setContainer: jest.fn(),

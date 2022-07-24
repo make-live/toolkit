@@ -8,6 +8,7 @@ describe("createIFrameStrategy", () => {
     expect(strategy).toMatchInlineSnapshot(`
       Object {
         "prepare": [Function],
+        "sendCommand": [Function],
       }
     `);
   });

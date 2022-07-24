@@ -44,6 +44,7 @@ describe("Provider", () => {
   it("creates an instance when `setContainer` is called", async () => {
     createInstanceMock.mockImplementation(() => ({
       addEventListener: jest.fn(),
+      sendCommand: jest.fn(),
       url: new URL("http://localhost:8888"),
     }));
 

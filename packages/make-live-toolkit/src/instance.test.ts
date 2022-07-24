@@ -12,14 +12,20 @@ const isValidEventMock = jest.mocked(isValidEvent);
 const createIFrameStrategyMock = jest.mocked(createIFrameStrategy);
 createIFrameStrategyMock.mockImplementation(() => ({
   prepare: jest.fn(),
+  sendCommand: jest.fn(),
 }));
 
 describe("createInstance", () => {
   it("throws an error when `container` is missing", () => {
+    const strategyMock = jest.mocked<Strategy>({
+      prepare: jest.fn<Strategy["prepare"]>(),
+      sendCommand: jest.fn(),
+    });
+
     expect(() =>
       createInstance({
         container: undefined as unknown as HTMLDivElement,
-        strategy: { prepare: jest.fn<Strategy["prepare"]>() },
+        strategy: strategyMock,
         url: "http://localhost:8888",
       }),
     ).toThrowErrorMatchingInlineSnapshot(
@@ -28,10 +34,15 @@ describe("createInstance", () => {
   });
 
   it("throws an error when `container` is not an HTMLDivElement", () => {
+    const strategyMock = jest.mocked<Strategy>({
+      prepare: jest.fn<Strategy["prepare"]>(),
+      sendCommand: jest.fn(),
+    });
+
     expect(() =>
       createInstance({
         container: document.createElement("span") as HTMLDivElement,
-        strategy: { prepare: jest.fn<Strategy["prepare"]>() },
+        strategy: strategyMock,
         url: "http://localhost:8888",
       }),
     ).toThrowErrorMatchingInlineSnapshot(
@@ -40,10 +51,15 @@ describe("createInstance", () => {
   });
 
   it("throws an error when `url` is missing", () => {
+    const strategyMock = jest.mocked<Strategy>({
+      prepare: jest.fn<Strategy["prepare"]>(),
+      sendCommand: jest.fn(),
+    });
+
     expect(() =>
       createInstance({
         container: document.createElement("div"),
-        strategy: { prepare: jest.fn<Strategy["prepare"]>() },
+        strategy: strategyMock,
         url: undefined as unknown as string,
       }),
     ).toThrowErrorMatchingInlineSnapshot(`"Missing 'url'"`);
@@ -59,7 +75,10 @@ describe("createInstance", () => {
   });
 
   it("calls `prepare` on the strategy", () => {
-    const strategyMock = { prepare: jest.fn<Strategy["prepare"]>() };
+    const strategyMock = jest.mocked<Strategy>({
+      prepare: jest.fn<Strategy["prepare"]>(),
+      sendCommand: jest.fn(),
+    });
 
     createInstance({
       container: document.createElement("div"),
@@ -76,7 +95,10 @@ describe("createInstance", () => {
   });
 
   it("returns an instance", () => {
-    const strategyMock = { prepare: jest.fn<Strategy["prepare"]>() };
+    const strategyMock = jest.mocked<Strategy>({
+      prepare: jest.fn<Strategy["prepare"]>(),
+      sendCommand: jest.fn(),
+    });
 
     const instance = createInstance({
       container: document.createElement("div"),
@@ -87,13 +109,17 @@ describe("createInstance", () => {
     expect(instance).toMatchInlineSnapshot(`
       Object {
         "addEventListener": [Function],
+        "sendCommand": [Function],
         "url": "http://localhost:8888/",
       }
     `);
   });
 
   it("discards invalid events", () => {
-    const strategyMock = { prepare: jest.fn<Strategy["prepare"]>() };
+    const strategyMock = jest.mocked<Strategy>({
+      prepare: jest.fn<Strategy["prepare"]>(),
+      sendCommand: jest.fn(),
+    });
     const eventListenerMock = jest.fn();
     isValidEventMock.mockReturnValue(false);
     const instance = createInstance({
@@ -112,7 +138,10 @@ describe("createInstance", () => {
   });
 
   it("broadcasts valid event to each listener", () => {
-    const strategyMock = { prepare: jest.fn<Strategy["prepare"]>() };
+    const strategyMock = jest.mocked<Strategy>({
+      prepare: jest.fn<Strategy["prepare"]>(),
+      sendCommand: jest.fn(),
+    });
     const eventListenerMock1 = jest.fn();
     const eventListenerMock2 = jest.fn();
     const eventListenerMock3 = jest.fn();
@@ -140,7 +169,10 @@ describe("createInstance", () => {
   });
 
   it("does not broadcast valids event to removed listeners", () => {
-    const strategyMock = { prepare: jest.fn<Strategy["prepare"]>() };
+    const strategyMock = jest.mocked<Strategy>({
+      prepare: jest.fn<Strategy["prepare"]>(),
+      sendCommand: jest.fn(),
+    });
     const eventListenerMock1 = jest.fn();
     const eventListenerMock2 = jest.fn();
     const eventListenerMock3 = jest.fn();
@@ -166,5 +198,25 @@ describe("createInstance", () => {
     expect(eventListenerMock2).toBeCalledWith({ type: "valid" });
     expect(eventListenerMock3).toBeCalledTimes(1);
     expect(eventListenerMock3).toBeCalledWith({ type: "valid" });
+  });
+
+  it("forwards commands to strategy", () => {
+    const strategyMock = jest.mocked<Strategy>({
+      prepare: jest.fn<Strategy["prepare"]>(),
+      sendCommand: jest.fn(),
+    });
+    const instance = createInstance({
+      container: document.createElement("div"),
+      strategy: strategyMock,
+      url: "http://localhost:8888",
+    });
+
+    instance.sendCommand({ data: "stat fps", type: "CONSOLE_COMMAND" });
+
+    expect(strategyMock.sendCommand).toBeCalledTimes(1);
+    expect(strategyMock.sendCommand).toBeCalledWith({
+      data: "stat fps",
+      type: "CONSOLE_COMMAND",
+    });
   });
 });

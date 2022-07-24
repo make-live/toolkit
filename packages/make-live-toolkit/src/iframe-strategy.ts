@@ -37,5 +37,12 @@ export const createIFrameStrategy = (): Strategy => {
 
       container.appendChild(iframe);
     },
+    sendCommand: (command) => {
+      if (iframe == null || iframe.contentWindow == null) {
+        throw new Error("No HTMLIFrameElement ready");
+      }
+
+      iframe.contentWindow.postMessage(command, "*");
+    },
   };
 };
