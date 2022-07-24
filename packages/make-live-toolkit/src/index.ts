@@ -1,3 +1,4 @@
+export * from "./commands";
 export * from "./events";
 export * from "./instance";
 export * from "./strategy";
