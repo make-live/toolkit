@@ -1,26 +1,26 @@
+import { createApp } from "./app";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { createServers } from "./server";
 
 const args = yargs(hideBin(process.argv))
   .scriptName("make-live-dev")
   .usage("$0 [args]")
   .options({
     "player-port": {
-      default: 8000,
+      default: 80,
       describe: "Port to use for player connections",
       type: "number",
     },
-    "streamer-port": {
-      default: 8888,
-      describe: "Port to use for streamer connections",
+    port: {
+      default: 9000,
+      describe: "Port to use for the server itself",
       type: "number",
     },
   })
   .help()
   .parseSync();
 
-createServers({
-  playerPort: args["player-port"],
-  streamerPort: args["streamer-port"],
+const app = createApp(args["player-port"]);
+app.listen(args["port"], () => {
+  console.log(`Listening on http://localhost:${args.port}`);
 });

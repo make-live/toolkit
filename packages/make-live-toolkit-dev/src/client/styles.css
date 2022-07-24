@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full
+    bg-black;
+  }
+
+  body,
+  #root {
+    @apply h-full;
+  }
+}
+
+video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* State to hide overlay, WebRTC communication is in progress and or is playing */
+.hiddenState {
+  display: none;
+}
