@@ -4,7 +4,7 @@ import path from "path";
 
 const root = require.resolve("@make-live/toolkit-dev/package.json");
 
-export const createApp = (playerPort: number) => {
+export const createApp = (playerURL: string) => {
   const app = express();
   app.use(compression());
   app.use(expressStatic(path.join(root, "../dist/client")));
@@ -12,7 +12,7 @@ export const createApp = (playerPort: number) => {
 
   app.get("/config", (req, res) => {
     res.json({
-      playerURL: `ws://localhost:${playerPort}`,
+      playerURL,
     });
   });
 

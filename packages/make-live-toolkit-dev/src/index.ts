@@ -6,10 +6,10 @@ const args = yargs(hideBin(process.argv))
   .scriptName("make-live-dev")
   .usage("$0 [args]")
   .options({
-    "player-port": {
-      default: 80,
-      describe: "Port to use for player connections",
-      type: "number",
+    "player-url": {
+      default: "ws://localhost:80",
+      describe: "URL of Signalling Server player socket",
+      type: "string",
     },
     port: {
       default: 9000,
@@ -20,7 +20,7 @@ const args = yargs(hideBin(process.argv))
   .help()
   .parseSync();
 
-const app = createApp(args["player-port"]);
+const app = createApp(args["player-url"]);
 app.listen(args["port"], () => {
   console.log(`Listening on http://localhost:${args.port}`);
 });
