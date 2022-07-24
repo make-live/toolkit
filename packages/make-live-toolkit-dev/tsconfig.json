@@ -4,8 +4,18 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
+    "jsx": "react-jsx",
+    "lib": ["dom", "es2020"],
     "rootDir": "src",
     "outDir": "dist/cjs"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../make-live-toolkit"
+    },
+    {
+      "path": "../make-live-toolkit-react"
+    }
+  ]
 }
