@@ -2,7 +2,6 @@
   "files": [],
   "references": [
     { "path": "packages/make-live-toolkit/tsconfig.esm.json" },
-    { "path": "packages/make-live-toolkit-dev/tsconfig.esm.json" },
     { "path": "packages/make-live-toolkit-react/tsconfig.esm.json" }
   ]
 }
