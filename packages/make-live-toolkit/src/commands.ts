@@ -14,7 +14,7 @@ export const interactionCommand = z.object({
 
 export type InteractionCommand = z.infer<typeof interactionCommand>;
 
-export type Command = ConsoleCommand;
+export type Command = ConsoleCommand | InteractionCommand;
 
 export const isValidCommand = (data: unknown): data is Command => {
   const foundSchema = [consoleCommand, interactionCommand].find((schema) => {
