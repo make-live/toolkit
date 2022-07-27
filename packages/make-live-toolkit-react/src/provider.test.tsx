@@ -77,6 +77,7 @@ describe("Provider", () => {
           Object {
             "instance": Object {
               "addEventListener": [MockFunction],
+              "sendCommand": [MockFunction],
               "url": "http://localhost:8888/",
             },
             "setContainer": [Function],
