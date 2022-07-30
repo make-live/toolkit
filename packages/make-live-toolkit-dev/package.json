@@ -8,6 +8,9 @@
   "bin": {
     "make-live-dev": "./bin/make-live-dev"
   },
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=14"
   },
