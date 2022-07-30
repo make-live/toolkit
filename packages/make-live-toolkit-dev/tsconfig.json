@@ -7,7 +7,7 @@
     "jsx": "react-jsx",
     "lib": ["dom", "es2020"],
     "rootDir": "src",
-    "outDir": "dist/cjs"
+    "outDir": "dist"
   },
   "include": ["src"],
   "references": [
