@@ -15,6 +15,7 @@
     "make-live-dev": "./bin/make-live-dev"
   },
   "files": [
+    "bin",
     "dist"
   ],
   "engines": {
