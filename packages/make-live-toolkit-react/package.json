@@ -1,6 +1,6 @@
 {
   "name": "@make-live/toolkit-react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Provides a way to interact with Make Live instances via React",
   "repository": {
     "type": "git",
