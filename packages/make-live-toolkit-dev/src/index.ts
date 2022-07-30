@@ -63,7 +63,7 @@ streamerHttpServer.listen(args.streamerPort, () => {
   console.log(
     `Listening on http://${address}:${args.streamerPort} for streamer connections.`,
   );
-  const launchParams = `-PixelStreamingURL=ws://${address}:${args.streamerPort}`;
+  const launchParams = `-PixelStreamingURL=ws://${address}:${args.streamerPort} -AllowPixelStreamingCommands`;
   console.log(
     `Launch parameters for UE application: ${chalk.bold(launchParams)}`,
   );
