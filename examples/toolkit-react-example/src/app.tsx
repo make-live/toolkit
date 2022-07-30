@@ -28,6 +28,9 @@ const App: FC = () => {
         setShow(false);
         break;
       }
+      case "RESPONSE": {
+        const data = event.data;
+      }
     }
   }, []);
   useEvents(handleEvents);
