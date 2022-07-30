@@ -19,7 +19,7 @@
     "build:server": "rollup -c",
     "dev": "concurrently yarn:dev:*",
     "dev:client": "parcel watch -p 9001 --dist-dir dist/client ./src/client/index.html",
-    "dev:server": "node -r dotenv/config -r esbuild-register src/index.ts"
+    "dev:server": "node -r esbuild-register src/index.ts"
   },
   "dependencies": {
     "@make-live/toolkit": "^0.0.1",
@@ -46,7 +46,6 @@
     "@types/yargs": "^17.0.10",
     "autoprefixer": "^10.4.7",
     "concurrently": "^7.2.2",
-    "dotenv": "^16.0.0",
     "esbuild": "^0.14.50",
     "esbuild-register": "^3.3.3",
     "parcel": "^2.6.2",
