@@ -2,7 +2,10 @@
   "name": "@make-live/toolkit",
   "version": "0.0.2",
   "description": "Provides a way to interact with Make Live instances",
-  "repository": "git@github.com:make-live/toolkit.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/make-live/toolkit.git"
+  },
   "author": "Make Live Team",
   "license": "MIT",
   "bugs": {

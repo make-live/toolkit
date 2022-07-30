@@ -2,7 +2,10 @@
   "name": "toolkit-react-example",
   "version": "0.0.1",
   "description": "An example application showing how to use the Make Live React Toolkit",
-  "repository": "git@github.com:make-live/toolkit.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/make-live/toolkit.git"
+  },
   "author": "Make Live Team",
   "license": "MIT",
   "private": true,

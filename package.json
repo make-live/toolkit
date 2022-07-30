@@ -1,7 +1,10 @@
 {
   "version": "0.0.1",
   "description": "Packages related to making your own custom Make Live Launcher UI.",
-  "repository": "git@github.com:make-live/toolkit.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/make-live/toolkit.git"
+  },
   "author": "Make Live Team",
   "license": "MIT",
   "private": true,
