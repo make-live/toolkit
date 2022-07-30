@@ -1,6 +1,6 @@
 {
   "name": "@make-live/toolkit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Provides a way to interact with Make Live instances",
   "repository": {
     "type": "git",
