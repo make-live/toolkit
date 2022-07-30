@@ -56,12 +56,12 @@ const app = createApp(`ws://${address}:${args["playerPort"]}`);
 
 playerHttpServer.listen(args.playerPort, () => {
   console.log(
-    `Listening on http://${address}:${args.playerPort} for player connections.`,
+    `Listening on ws://${address}:${args.playerPort} for player connections.`,
   );
 });
 streamerHttpServer.listen(args.streamerPort, () => {
   console.log(
-    `Listening on http://${address}:${args.streamerPort} for streamer connections.`,
+    `Listening on ws://${address}:${args.streamerPort} for streamer connections.`,
   );
   const launchParams = `-PixelStreamingURL=ws://${address}:${args.streamerPort} -AllowPixelStreamingCommands`;
   console.log(
