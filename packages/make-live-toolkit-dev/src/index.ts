@@ -54,15 +54,8 @@ streamerHttpServer.on("upgrade", function upgrade(request, socket, head) {
 
 const app = createApp(`ws://${address}:${args["playerPort"]}`);
 
-playerHttpServer.listen(args.playerPort, () => {
-  console.log(
-    `Listening on ws://${address}:${args.playerPort} for player connections.`,
-  );
-});
+playerHttpServer.listen(args.playerPort);
 streamerHttpServer.listen(args.streamerPort, () => {
-  console.log(
-    `Listening on ws://${address}:${args.streamerPort} for streamer connections.`,
-  );
   const launchParams = `-PixelStreamingURL=ws://${address}:${args.streamerPort} -AllowPixelStreamingCommands`;
   console.log(
     `Launch parameters for UE application: ${chalk.bold(launchParams)}`,
@@ -70,6 +63,6 @@ streamerHttpServer.listen(args.streamerPort, () => {
 });
 app.listen(args.port, () => {
   console.log(
-    `Listening on http://localhost:${args.port} (http://${address}:${args.port}) for toolkit connections.`,
+    `Listening on http://${address}:${args.port} for toolkit connections.`,
   );
 });
