@@ -15,17 +15,17 @@ jobs:
       - run: yarn --frozen-lockfile
       - run: yarn build
       - name: Publish @make-live/toolkit
-        run: yarn publish
+        run: yarn publish --access public
         working-directory: packages/make-live-toolkit
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish @make-live/toolkit-react
-        run: yarn publish
+        run: yarn publish --access public
         working-directory: packages/make-live-toolkit-react
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish @make-live/toolkit-dev
-        run: yarn publish
+        run: yarn publish --access public
         working-directory: packages/make-live-toolkit-dev
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
