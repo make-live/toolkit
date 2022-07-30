@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full;
+  }
+
+  body,
+  #root {
+    @apply h-full overflow-hidden;
+  }
+}
+
+@layer components {
+  .icon-button {
+    @apply flex items-center justify-center bg-transparent rounded-2xl cursor-pointer active:bg-gray-800 hover:bg-gray-700 focus-visible:bg-gray-700 focus-visible:outline-2 focus-visible:outline-white p-2 text-white whitespace-nowrap;
+  }
+}

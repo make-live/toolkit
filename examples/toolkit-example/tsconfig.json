@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node14",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["dom", "es2020"],
+    "rootDir": "src",
+    "outDir": "dist/cjs"
+  },
+  "include": ["src"]
+}
