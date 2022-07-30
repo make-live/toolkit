@@ -5,6 +5,9 @@
   "repository": "git@github.com:make-live/toolkit.git",
   "author": "Make Live Team",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/make-live/toolkit/issues"
+  },
   "bin": {
     "make-live-dev": "./bin/make-live-dev"
   },

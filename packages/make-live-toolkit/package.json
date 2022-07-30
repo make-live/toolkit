@@ -5,8 +5,12 @@
   "repository": "git@github.com:make-live/toolkit.git",
   "author": "Make Live Team",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/make-live/toolkit/issues"
+  },
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
   "files": [
     "dist"
   ],
