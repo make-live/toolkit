@@ -1,0 +1,31 @@
+name: Publish Package to npm
+on:
+  release:
+    types: [created]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
+      - run: yarn --frozen-lockfile
+      - run: yarn build
+      - name: Publish @make-live/toolkit
+        run: yarn publish
+        working-directory: packages/make-live-toolkit
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish @make-live/toolkit-react
+        run: yarn publish
+        working-directory: packages/make-live-toolkit-react
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish @make-live/toolkit-dev
+        run: yarn publish
+        working-directory: packages/make-live-toolkit-dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
