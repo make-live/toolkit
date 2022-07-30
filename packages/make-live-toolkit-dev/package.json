@@ -1,6 +1,6 @@
 {
   "name": "@make-live/toolkit-dev",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Development tools to help you create amazing Make Live custom UIs",
   "repository": "git@github.com:make-live/toolkit.git",
   "author": "Make Live Team",
