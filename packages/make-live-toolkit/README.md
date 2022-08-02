@@ -18,6 +18,18 @@ To install with Yarn:
 yarn add @make-live/toolkit
 ```
 
+## Local Development Workflow
+
+To enable you to work on your custom UI locally you can use the [@make-live/toolkit-dev](../make-live-toolkit-dev) module. This will run the necessary servers to enable your local Unreal Engine application to use Pixel Streaming. There are a few steps you need to go through.
+
+Note that you do not have to run everything on the same computer. For example, you can run your Unreal Engine application on Windows and develop your custom UI on MacOS/Linux. Everything will work fine as long as they are on the same local network.
+
+1. Add the Pixel Streaming plugin to your Unreal Engine application
+1. Run [@make-live/toolkit-dev](../make-live-toolkit-dev) by using the command `npx @make-live/toolkit-dev`
+1. Take note of the launch parameters and toolkit connection URL it writes out to the console and add the launch parameters in Unreal Engine. You'll need to keep this running to handle the connections between Unreal Engine and your custom UI.
+1. In your custom UI use the toolkit connection URL when calling `createInstance`.
+1. Run your custom UI server and you should see "Make Live" along with a play button. Press the play button to start connecting.
+
 ## Commands
 
 There are two different type of commands your application can send at the moment.
